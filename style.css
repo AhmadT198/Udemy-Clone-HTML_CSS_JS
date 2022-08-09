@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,600;0,700;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+*{
+    box-sizing: border-box;
+
+}
+
+
+/*********************************************************************************** Default Styling ********************************************************/
+body{
+    font-family: 'Open Sans', sans-serif;
+    margin:0;
+    padding:0;
+    height:300rem;
+    display: flex;;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+}
+
+ul,h1,h2,h3{
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+h1{
+    font-size:2.3rem;
+    font-family: 'DM Serif Display', serif;
+    font-weight:400;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+
+
+/*********************************************************************************** Nav bar Styling ********************************************************/
+
+nav{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
+    padding: 10px 24px;
+    font-size:0.9em;
+    z-index:10000;
+    position: relative;
+}
+nav .menu,nav .search-alternate{ /* hidden icons for smaller screens */
+    display: none;
+}
+
+nav img{
+    cursor: pointer;
+}
+
+.navOption{
+    color:black;
+    text-decoration: none;
+    font-weight:600;
+    padding:0 1.3rem;
+    white-space: nowrap;
+    font-size:0.9em;
+}
+.navOption:hover{
+    color:#401b9c;
+}
+
+/********Search Bar********************/
+.search-bar{
+    
+    border:1px solid black;
+    border-radius:25px;
+    padding-top:0;
+    padding-right:10px;
+    width:100%;
+    background-color: rgba(0,0,0,.04);
+}
+.search-bar form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.search-bar button{
+    width:3rem;height:3rem;
+    border:0;
+    background-color: transparent;
+}
+.search-bar input{
+    border:0;
+    background-color: transparent;
+    padding:0;
+    width:100%;
+    color:#1c1d1f;
+    height:100%
+}
+/**********Search Bar End **********************/
+
+
+.shopping-cart{
+    padding-left:0.4rem;
+}
+.navBtn{
+    border:1px solid black;
+    padding: 0.6rem 1.0rem;
+    margin:0 5px;
+    font-size:0.85rem;
+    font-weight:bolder;
+}
+.navBtn:hover{
+    background-color: rgba(0,0,0,.04);
+    color:black;
+}
+.teach{
+    padding-left:0;
+}
+.sign-up{
+    background-color: #1c1d1f;
+    color:white;
+}
+.sign-up:hover{
+    background-color: black;
+    color:white;
+}
+
+nav a:last-child{  /* Globe Icon */
+    padding:0.6rem;
+}
+
+/*********************************************************************************** End Navbar Styling ********************************************************/
+
+
+
+
+
+/*********************************************************************************** Header Styling ********************************************************/
+
+header{
+    display: flex;
+    justify-content: end;
+    background-color: #f8f9fb;
+    align-self: center;
+    max-width: 1340px;
+    width:100%
+}
+header img{
+    justify-self: end;
+    position: relative;
+    max-width:83.75rem;
+    z-index: 0;
+    right:0;
+    left:0;
+}
+
+.banner{
+    background-color: white;
+    top:140px;
+    left:170px;
+    position: absolute;
+    display:inline-block;
+    padding:1.5rem ;
+    width:416px;
+    height:200px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
+}
+
+.banner > h1,p
+{
+    margin:0;
+}
+
+.banner p{
+    margin-top:0.6rem;
+    font-size:1.2rem;
+    margin-bottom:3rem;
+}
+
+
+
+/*********************************************************************************** End Header Styling ********************************************************/
+
+
+
+
+
+
+
+/*********************************************************************************** Main Sections Styling ********************************************************/
+main{
+    max-width:83.75rem;
+    margin:auto;
+    margin-top:2rem;
+}
+
+.courses{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding:0 1rem;
+}
+.courses h1{
+    margin-bottom:0.3rem;
+    
+}
+.courses p{
+    
+    font-weight:600;
+    font-size:1rem;
+}
+.courses  ul.fields{
+    display: flex;
+    width:100%;
+    align-items: center;
+    justify-content: start;
+    list-style: none;
+    padding:0;
+}
+.courses ul.fields button
+{
+    border:0;
+    background-color: transparent;
+    color:#6a6f73;
+    padding-top:1rem;
+    padding-bottom:1rem;
+    padding-left:4px;
+    cursor: pointer;
+    font-size:1rem;
+}
+
+.courses ul.fields li:first-child button{
+    color:black;
+}
+.courses ul.fields button:hover
+{
+    color:black;
+}
+
+
+
+
+
+.course-details{
+    border:1px solid #d1d7dc;
+    padding:2rem;
+    width:100%;
+}
+
+
+.course-details .course-intro{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width:50rem;
+    margin-bottom:3rem;
+}
+.course-details .course-intro p{
+    font-size:0.9rem;
+    line-height : 1.5rem;
+    overflow: hidden;
+
+}
+.course-details .course-intro h2{
+    margin-bottom:0.5rem;
+}
+.course-details .course-intro p{
+    margin-bottom:1rem;
+}
+.course-details button{
+    margin:0;
+    background-color: white;
+}
+
+.course-details ul{
+    display:flex;
+    justify-content: start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.course-details li{
+    margin:0 0.5rem;
+}
+
+
+
+
+
+
+
+
+
+.single-course{
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    max-width: 230px;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    
+}
+.single-course h3{
+    margin-top:0.5rem;
+}
+.single-course h3,.single-course img
+{
+    width:100%;
+    height:100%;
+    font-size: 0.9rem;
+}
+.single-course img:hover{
+    filter: brightness(80%);
+    transition: filter 200ms;
+}
+.single-course .inst-name{
+    font-size: 0.8rem;
+    color:grey;
+    font-weight: 500;
+    margin:0.15rem 0;
+}
+
+.single-course .rating{
+    display: flex;
+    align-items: center;
+}
+.single-course .rating i{
+    color:orange;
+    font-size:0.7rem;
+}
+.stars{
+    display: flex;
+    align-items: center;
+    margin:0 0.3rem;
+}
+.single-course .rating span:last-child{ /*No of ratings*/
+    color:grey;
+    font-size:0.7rem;
+    font-weight:600;
+}
+.single-course .rating span:first-child{ /*Rating*/
+    color:grey;
+    font-weight:600;
+    color:#b4690e;
+}
+
+.single-course .price{
+    font-weight: 800;
+}
+
+.prev-price{
+    content: 'E£199.99';
+    text-decoration: line-through;
+    color:grey;
+    font-size:0.9rem;
+    font-weight:600;
+}
+
+.best-seller{
+    font-size:0.8rem;
+    padding:0.2rem 0.7rem;
+    background-color: #eceb98;
+    font-weight:600;
+    margin-top:0.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************************************************************************** Media Queries ********************************************************/
+
+
+@media (max-width:1200px)   /* Adjust the dimensions of the banner fixed on the header*/
+{
+    .banner{
+        top : 100px;
+        left: 80px;
+    }
+}
+@media (max-width:1080px)   /* Remove a button from the navbar  */
+{
+    nav .udemy-bus{
+        display:none;
+    }
+    nav .teach{
+        padding-left:1rem;
+    }
+}
+@media (max-width:980px)   /* Adjust the dimensions of the banner fixed on the header again */
+{
+    .banner{
+        width:300px;
+        height:230px;
+    }
+}
+
+@media (max-width:920px)   /* Remove another button from the navbar  */
+{
+    nav .teach{
+        display:none;
+    }
+    .shopping-cart{
+        padding: 0 1rem;
+    }
+}
+
+
+@media (max-width:900px)   /* Put the banner below the header  */
+{
+    header{
+        display:flex;
+        flex-direction: column;
+    }
+    .banner{
+        position: relative;
+        top:0;
+        left:0;
+        box-shadow: none;
+        width:100%;
+        height:0;
+        margin-bottom:4.4rem;
+    }
+    header img{
+        height:400px;
+        align-self: center;
+    }
+}
+
+@media (max-width:800px)    /* Remove the search bar and buttons from the navbar and puts the menu icon and the alternate search icon */
+{
+    .search-bar,.categories, nav .navBtn{
+        display: none;
+    }
+    nav{
+        justify-content: space-between;
+        padding-left:0;
+        padding-right:0;
+    }
+    nav img{
+        flex-grow:1;
+    }
+    nav .shopping-cart,nav .menu, nav .search-alternate{
+        padding:0 1rem;
+    }
+    nav .menu,nav .search-alternate{
+        display: flex;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+    nav .search-alternate{
+        justify-self: end;
+    }
+}
+
+
+@media (max-width:770px)  
+{
+    .course-intro p{
+        display:none;
+    }
+ 
+   
+}
+@media (max-width:700px)
+{
+    .courses h1 + p{
+        display:none;
+    }
+}
+
+
+
+@media (max-width:620px)  /*Resizing the header of the course intro section*/
+{
+    .course-intro h2{
+        width:20rem;
+    }
+}
+
+
+
+
+@media (max-width:535px)    /*   Making the font sizes and the height of the header image relative to the view width and keeping only one course   */
+{
+    .banner p, .courses p{
+        font-size: 4vw;
+    }
+
+    .banner{
+        margin-bottom:4.4rem;
+    }
+     h1{
+        font-size:7vw;
+    }
+
+    header img{
+        height:80vw;
+    }
+    .course2,.course3,.course4,.course5{
+        display:none;
+    }
+}
+
+
+
+
+@media (max-width:390px)  /* Removing the shopping cart and alternate search button   and  resizing the header course intro section */ 
+{
+    nav .search-alternate, nav .shopping-cart{
+        display: none;
+    }
+    nav img{
+        flex-grow: 0;
+        margin-right:1rem;
+    }
+    .course-intro h2{
+        width:19rem;
+    }
+    
+}
