@@ -20,8 +20,8 @@
 
                 <div class="search-bar">
                     <form action="">
-                        <button type="submit"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
-                        <input placeholder="Search for anything" type="text" name="search" id="search">
+                        <button id="search-submit" type="submit"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
+                        <input id="search-bar" placeholder="Search for anything" type="text" name="search" id="search">
                     </form>
                 </div>
 
@@ -86,127 +86,11 @@
                         <button class="navOption navBtn">Explore Python</button>
                     </div>
 
-
-
-                    <ul>
-                        <li class="course1">
-                            <a href="#">
-                                <div class="single-course">
-                                    <img alt="Learn Python: The Complete Python Programming Course" src="https://img-c.udemycdn.com/course/240x135/394676_ce3d_5.jpg">
-                                    <h3>Learn Python: The Complete Python Programming Course</h3>
-                                    <span class="inst-name">Avinash Jain,The Codex</span>
-                                    <div class="rating">
-                                        <span>4.4</span>
-                                        <div class="stars">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star-half-stroke"></i>
-                                        </div>
-                                        <span>(2,845)</span>
-                                    </div>
-                                    <div><span class="price">E£199.99</span> <span class="prev-price">E£679.99</span></div>
-                                </div>
-                            </a>
-                        </li>
-                        
-
-
-                        <li class="course2">
-                            <a href="#"><div class="single-course">
-                                <img alt="Learning Python for Data Analysis and Visualization"
-                        src="https://img-c.udemycdn.com/course/240x135/396876_cc92_7.jpg">
-                                <h3>Learning Python for Data Analysis and Visualization</h3>
-                                <span class="inst-name">Jose Portilla</span>
-                                <div class="rating">
-                                    <span>4.4</span>
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                    <span>(17,956)</span>
-                                </div>
-                                <div><span class="price">E£269.99</span> <span class="prev-price">E£1599.99</span></div>
-                                <span class="best-seller">Bestseller</span>
-
-                            </div></a>
-                        </li>
-
-
-
-                        <li class="course3">
-                            <a href="#"><div class="single-course">
-                                <img alt="Python for Beginners - Learn Programming from scratch" src="https://img-c.udemycdn.com/course/480x270/405878_e5a0_3.jpg">
-                                <h3>Python for Beginners - Learn Programming from scratch</h3>
-                                <span class="inst-name">Edwin Diaz, Coding Faculty Solutions</span>
-                                <div class="rating">
-                                    <span>4.4</span>
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                    <span>(1,734)</span>
-                                </div>
-                                <div><span class="price">E£199.99</span> <span class="prev-price">E£679.99</span></div>
-                            </div></a>
-                        </li>
-
-
-
-                        <li class="course4">
-                            <a href="#"><div class="single-course">
-                                <img alt="Learn Python: Python for Beginners" src="https://img-c.udemycdn.com/course/480x270/426570_1b91_3.jpg">
-                                <h3>Learn Python: Python for Beginners</h3>
-                                <span class="inst-name">Abrar Hussain</span>
-                                <div class="rating">
-                                    <span>4.2</span>
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                    </div>
-                                    <span>(2,759)</span>
-                                </div>
-                                <div><span class="price">E£199.99</span> <span class="prev-price">E£319.99</span></div>
-                            </div></a>
-                        </li>
-
-
-                        
-                        <li class="course5">
-                            <a href="#"><div class="single-course">
-                                <img alt="Python Beyond the Basics - Object-Oriented Programming" src="https://img-c.udemycdn.com/course/480x270/449532_2aa9_7.jpg">
-                                <h3>Python Beyond the Basics - Object-Oriented Programming</h3>
-                                <span class="inst-name">Infinte Skills</span>
-                                <div class="rating">
-                                    <span>4.4</span>
-                                    <div class="stars">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                    <span>(2,927)</span>
-                                </div>
-                                <div><span class="price">E£229.99</span> <span class="prev-price">E£519.99</span></div>
-                            </div></a>
-                        </li>
-                    
-                        
-                    </ul>
+                    <ul id="courses-list"></ul>
                 </section>
             </section>
         </main>
+    <script src="main.js"></script>
     </body>
     <script src="https://kit.fontawesome.com/1f24a3ee93.js" crossorigin="anonymous"></script>
 </html>

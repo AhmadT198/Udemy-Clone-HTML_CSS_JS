@@ -192,7 +192,7 @@ header img{
 
 /*********************************************************************************** Main Sections Styling ********************************************************/
 main{
-    max-width:83.75rem;
+    width:83.75rem;
     margin:auto;
     margin-top:2rem;
 }
@@ -354,6 +354,7 @@ main{
 
 .single-course .price{
     font-weight: 800;
+    margin-right:0.3rem;
 }
 
 .prev-price{
