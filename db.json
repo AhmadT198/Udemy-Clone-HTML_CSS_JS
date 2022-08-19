@@ -55,6 +55,72 @@
             "original-price" : "519.99",
             "new-price" : "199.99",
             "best-seller": false
+        },
+        {
+            "id" : 1,
+            "image" : "https://img-c.udemycdn.com/course/240x135/394676_ce3d_5.jpg",
+            "title" :  "Learn Python: The Complete Python Programming Course",
+            "instructor" : "Avinash Jain,The Codex",
+            "rating" : ["4.4","2,845"],
+            "sale" : true,
+            "original-price" : "679.99",
+            "new-price" : "199.99",
+            "best-seller": false
+        },
+        {
+            "id" : 1,
+            "image" : "https://img-c.udemycdn.com/course/240x135/394676_ce3d_5.jpg",
+            "title" :  "Learn Python: The Complete Python Programming Course",
+            "instructor" : "Avinash Jain,The Codex",
+            "rating" : ["4.4","2,845"],
+            "sale" : true,
+            "original-price" : "679.99",
+            "new-price" : "199.99",
+            "best-seller": false
+        },
+        {
+            "id" : 1,
+            "image" : "https://img-c.udemycdn.com/course/240x135/394676_ce3d_5.jpg",
+            "title" :  "Learn Python: The Complete Python Programming Course",
+            "instructor" : "Avinash Jain,The Codex",
+            "rating" : ["4.4","2,845"],
+            "sale" : true,
+            "original-price" : "679.99",
+            "new-price" : "199.99",
+            "best-seller": false
+        },
+        {
+            "id" : 1,
+            "image" : "https://img-c.udemycdn.com/course/240x135/394676_ce3d_5.jpg",
+            "title" :  "Learn Python: The Complete Python Programming Course",
+            "instructor" : "Avinash Jain,The Codex",
+            "rating" : ["4.4","2,845"],
+            "sale" : true,
+            "original-price" : "679.99",
+            "new-price" : "199.99",
+            "best-seller": false
+        },
+        {
+            "id" : 1,
+            "image" : "https://img-c.udemycdn.com/course/240x135/394676_ce3d_5.jpg",
+            "title" :  "Learn Python: The Complete Python Programming Course",
+            "instructor" : "Avinash Jain,The Codex",
+            "rating" : ["4.4","2,845"],
+            "sale" : true,
+            "original-price" : "679.99",
+            "new-price" : "199.99",
+            "best-seller": false
+        },
+        {
+            "id" : 1,
+            "image" : "https://img-c.udemycdn.com/course/240x135/394676_ce3d_5.jpg",
+            "title" :  "Learn Python: The Complete Python Programming Course",
+            "instructor" : "Avinash Jain,The Codex",
+            "rating" : ["4.4","2,845"],
+            "sale" : true,
+            "original-price" : "679.99",
+            "new-price" : "199.99",
+            "best-seller": false
         }
     ]
 }
