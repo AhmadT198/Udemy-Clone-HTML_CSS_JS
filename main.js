@@ -1,220 +1,123 @@
 
-
-/* 
-/-----------------------------------------------------This is the Structure we want to build using DOM manipulation
-
-<li class="course5">
-    <a href="#">
-        <div class="single-course">
-            <img alt="Python Beyond the Basics - Object-Oriented Programming" src="https://img-c.udemycdn.com/course/480x270/449532_2aa9_7.jpg">
-            <h3>Python Beyond the Basics - Object-Oriented Programming</h3>
-            <span class="inst-name">Infinte Skills</span>
-            <div class="rating">
-                <span>4.4</span>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star-half-stroke"></i>
-                </div>
-                <span>(2,927)</span>
-            </div>
-            <div>
-                <span class="price">E£229.99</span> <span class="prev-price">E£519.99</span>
-            </div>
-        </div>
-    </a>
-</li>
-
- */
+import *  as cardMaker from '/card.js';
 
 
 
 
 let courses = {
 
-    fetchCourses: function(){
+    fetchCourses: function () {
         //fetch the courses data
-        fetch("https://my-json-server.typicode.com/AhmadT198/Project-1---Udemy-Clone/courses")
-        .then((response) => response.json())
-        .then((data) => this.displayCourses(data));
+        fetch("https://api.jsonbin.io/v3/b/630013105c146d63ca76b380/latest", {
+            method: 'GET',
+            headers: {
+                'X-Master-Key': '$2b$10$9VcIHL6nigHvFMssjhtAH.tp0tfttSGw0YM6VoCyQRPcg4D5y0eTm'
+            }
+        })
+            .then((response) => response.json())
+            .then((data) => this.displayCourses(data));
     },
 
-    displayCourses: function(data){
-        //for each course make its card component
-        const searchBar = document.getElementById("search-submit");
+
+
+    carouselDisplay: function (data) {
+        //Get all Carousels of all tabs
+        const carouselInnerArr = document.querySelectorAll(".carousel-inner");
+        let idx = 0;
+
+        //For each Tab DIsplay its courses in a seperate Carousel
+        for (let course in data) {
+            this.makeTab(data[course], carouselInnerArr[idx]);
+            idx++;
+        }
+
+
+    },
+
+
+
+
+    displayCourses: function (data) {
+
 
         //Display all courses by default
-        data.forEach(this.makeCard);
+        this.carouselDisplay(data.record);
 
 
-        const searchFunc = (e)=>{
+        const searchFunc = (e) => {
             e.preventDefault(); //prevent page from refreshing when clicking the button (submitting the form)
 
             //get the value of the search bar
-            searchVal = document.getElementById("search-bar").value.toLowerCase().trim();
-            
+            let searchVal = document.getElementById("search-bar").value.toLowerCase().trim();
+
             //delete all courses
-            const ul = document.getElementById("courses-list");
-            var child = ul.lastElementChild;
-            while(child)
-            {
-                ul.removeChild(child);
-                child = ul.lastElementChild;
+            const carouselInner = document.querySelectorAll(".carousel-inner");
+            for (let i in carouselInner) {
+                var child = carouselInner[i].lastElementChild;
+                while (child) {
+                    carouselInner[i].removeChild(child);
+                    child = carouselInner[i].lastElementChild;
+                }
             }
-            
-            //display only those that include the value of the search bar
-            for(const course of data)
-            {
-                if(course["title"].toLowerCase().includes(searchVal)) this.makeCard(course);
+
+            //For storing Modified Data
+            const modData = {};
+
+            //display only those that include the value of the search bar in each tab Separately 
+            for (let genre in data.record) {
+
+                modData[genre] = [];
+                for (let course of data.record[genre]) {
+                    if (course["title"].toLowerCase().includes(searchVal)) modData[genre].push(course);
+
+                }
             }
+
+            //Display Modified Data
+            this.carouselDisplay(modData);
 
         }
 
 
 
         //if the search button is clicked, display only the courses that include the value of the search bar
+        const searchBar = document.getElementById("search-submit");
         searchBar.addEventListener("click", searchFunc);
 
 
     },
 
-    makeCard: function(course)
-    {
-        
-
-        //We need to build the HTML structure commented above
-        //Make an li element and adjust its class name
-        const li = document.createElement("li");
-        li.classList.add("course" + course["id"]);
 
 
-        //make an "a" element and adjust its attributes
-        const a = document.createElement("a");
-        a.setAttribute("href", "#");
-        li.appendChild(a);
 
+    makeTab: function (data, carInner) {
+        //Each SLide has a MAX of 5 Courses
+        let SlideNum = Math.ceil(data.length / 5);
 
-        //Create the Container of the card
-        const div_single_course = document.createElement("div");
-        div_single_course.classList.add("single-course");
-        a.appendChild(div_single_course);
+        for (let x = 1; x <= SlideNum; x++) {
 
-        //Append the course image and adjust it attributes
-        const img = document.createElement("img");
-        img.setAttribute("alt", course["title"]);
-        img.setAttribute("src", course["image"]);
-        div_single_course.appendChild(img);
+            const carouselItem = document.createElement("div");
+            carouselItem.classList.add("carousel-item");
+            if (x == 1) { carouselItem.classList.add("active"); }
 
-        //Append the header element
-        const h3 = document.createElement("h3");
-        h3.textContent = course["title"];
-        div_single_course.appendChild(h3);
-        
-        //Append the instructor name SPAN
-        const span = document.createElement("span");
-        span.classList.add("inst-name");
-        span.textContent = course["instructor"];
-        div_single_course.appendChild(span);
+            const rowDiv = document.createElement("div");
+            rowDiv.classList.add("row");
+            rowDiv.classList.add("g-0");
 
-        //Append the rating Container
-        div_single_course.appendChild(makeRating(course["rating"][0],course["rating"][1]));
+            carouselItem.appendChild(rowDiv);
+            carInner.appendChild(carouselItem);
 
-        //If there is a sale append both old and new prices... if not append the original price only
-        const price_div = document.createElement("div");
-        if(course["sale"])
-        {
-            const cur_price = document.createElement("span");
-            cur_price.classList.add("price");
-            cur_price.textContent = "E£" + course["new-price"];
-
-            const prev_price = document.createElement("span");
-            prev_price.classList.add("prev-price");
-            prev_price.textContent = "E£" + course["original-price"];
-            price_div.appendChild(cur_price);
-            price_div.appendChild(prev_price);
+            //Make Cards for the courses of the current slide 
+            //and append them in the current Row Div
+            for (let y = (x - 1) * 5; y <= x * 5 - 1 && y < data.length; y++) {
+                const li = cardMaker.card(data[y]);
+                rowDiv.appendChild(li);
+            }
         }
-        else{
-            const cur_price = document.createElement("span");
-            cur_price.classList.add("price");
-            cur_price.textContent = "E£" + course["original-price"];
-            price_div.appendChild(cur_price);
-
-
-        }
-        div_single_course.appendChild(price_div);
-
-
-        // if its a best seller append the bestseller icon
-        if(course["best-seller"])
-        {
-            const best = document.createElement("span");
-            best.classList.add("best-seller");
-            best.textContent="Bestseller";
-            div_single_course.appendChild(best);
-        }
-
-        //Append this new component to the Original UL element
-        const ul = document.getElementById("courses-list");
-        ul.appendChild(li);
     }
-    
-
 
 }
 
-//Making the Rating Div
-const makeRating = (rating, users) => {
-
-    //Create the container
-    const div_rating = document.createElement("div");
-    div_rating.classList.add("rating");
-
-    //Create the Rating span and append it to the container
-    const rating_span = document.createElement("span");
-    rating_span.textContent = rating;
-    div_rating.appendChild(rating_span);
-
-
-    //Create the Stars Div and append it to the container
-    const stars_div = document.createElement("div");
-    stars_div.classList.add("stars");
-    div_rating.appendChild(stars_div);
-
-    //Display the right amount of stars:
-    //Display Full stars for the integer part
-    for(let x = 0; x < Math.floor(rating); x++){
-        let i = document.createElement("i");
-        i.classList.add("fa-solid"); i.classList.add("fa-star");
-        stars_div.appendChild(i);
-    }
-
-    //get the fraction part and display the right chape of the star
-    let frac = Number(rating) - Math.floor(rating);
-    frac = frac.toPrecision(1);
-
-    if(frac >= 0.3 && frac <= 0.7){ //Half a star from 0.3 to 0.7
-        let i = document.createElement("i");
-        i.classList.add("fa-solid"); i.classList.add("fa-star-half-stroke");
-
-        stars_div.appendChild(i);
-
-    } else if(frac >= 0.8) //full star for 0.8 and 0.9
-    {
-        let i = document.createElement("i");
-        i.classList.add("fa-solid"); i.classList.add("fa-star");
-        stars_div.appendChild(i);
-
-    }
-
-    //Create the users Span and append it to the container
-    const users_span = document.createElement("span");
-    users_span.textContent = '('+users+')';
-    div_rating.appendChild(users_span);
-
-    return div_rating;
-}
 
 
 
