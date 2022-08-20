@@ -1,5 +1,5 @@
 
-import *  as cardMaker from 'phase3-dev/card.js';
+import *  as cardMaker from '/card.js';
 
 
 
