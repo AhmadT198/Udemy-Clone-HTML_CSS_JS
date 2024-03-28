@@ -1,4 +1,4 @@
-# Project-1---Udemy-Clone
+# Udemy-Clone Using HTML, CSS, JS
 
 Phase 1 of Project 1, part from BLD.AI Summer22 training. <br>
 
